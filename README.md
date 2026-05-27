@@ -1,9 +1,8 @@
 # IceTray Tutorial: InIce Cosmic-Ray Analysis
 
-This repository is an introduction to the IceTray software
-framework used in IceCube analyses. It focuses on the in-ice detector only:
-DOMs on IceCube strings, event frames, pulse series, filters, reconstructed
-quantities, simulation truth, and small analysis outputs.
+This repository is an introduction to the IceTray software framework used in IceCube analyses. It focuses on the in-ice detector only: DOMs on IceCube strings, event frames, pulse series, filters, reconstructed quantities, simulation truth, and small analysis outputs.
+
+The notebooks are written for students who are new to both IceTray and Python. For that reason, the main tutorial code is intentionally visible inside the notebooks: file paths, loops, small functions, print statements, and comments are shown directly. The `src/` package and `scripts/` directory are useful references, but they are not required to understand the notebook lessons.
 
 ## What you'll learn:
 
@@ -26,8 +25,7 @@ git clone https://github.com/ian-reistroffer/IceTray_tutorial.git
 cd IceTray_tutorial
 ```
 
-Enter an IceTray environment. The exact metaproject changes over time, but a
-typical CVMFS pattern is:
+Enter an IceTray environment. The exact metaproject changes over time, but a typical CVMFS pattern is:
 
 ```bash
 eval `/cvmfs/icecube.opensciencegrid.org/py3-v4.4.0/setup.sh`
@@ -56,9 +54,7 @@ GCD: /data/exp/IceCube/2020/filtered/level2/0101/Run00133576/Level2_IC86.2019_da
 I3:  /data/exp/IceCube/2020/filtered/level2/0101/Run00133576/Level2_IC86.2019_data_Run00133576_Subrun00000000_00000000.i3.zst
 ```
 
-The notebooks read only a limited number of frames by default so they remain
-interactive. Large outputs should go under your `/data/user/<username>/`
-directory.
+The notebooks read only a limited number of frames by default so they remain interactive. Large outputs should go under your `/data/user/<username>/` directory.
 
 ## Repository Layout
 
