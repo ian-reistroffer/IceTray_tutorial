@@ -35,19 +35,19 @@ Understand the IceTray processing pattern: readers feed frames into a tray; modu
 
 To-do's:
 
-- [ ] Build a tray with `I3Reader`.
-- [ ] Add Python functions as modules.
-- [ ] Add an `I3ConditionalModule` style class.
-- [ ] Select events with `QFilterMask`.
-- [ ] Select events with at least a minimum number of pulsed DOMs.
+- Build a tray with `I3Reader`.
+- Add Python functions as modules.
+- Add an `I3ConditionalModule` style class.
+- Select events with `QFilterMask`.
+- Select events with at least a minimum number of pulsed DOMs.
 
 ## Lesson 4: Simulation Truth And Geometry
 
 Continue with `notebooks/04_sim_truth_lateral_distance.ipynb`.
 
-Students should learn how the GCD geometry maps OMKeys to DOM positions and how simulation truth can be compared to observed pulses.
+Understand how the GCD geometry maps OMKeys to DOM positions and how simulation truth can be compared to observed pulses.
 
-Practice goals:
+To-do's:
 
 - Read `I3Geometry` from the GCD file.
 - Keep only in-ice DOMs.
@@ -59,17 +59,15 @@ Practice goals:
 
 Finish with `notebooks/05_write_hdf5_outputs.ipynb`.
 
-Students should learn that `.i3` is the native event format, while HDF5 is a convenient format for downstream plotting and analysis.
+Understand that `.i3` is the native event format, while HDF5 is a convenient format for downstream plotting and analysis.
 
-Practice goals:
+To-do's:
 
 - Write selected IceTray keys with `I3HDFWriter`.
 - Write a small custom Pandas table to HDF5 as a lightweight alternative.
 - Store outputs under `/data/user/<username>/`, not in the git repository.
 
-## Capstone Exercises
-
-Choose one:
+## Exercises
 
 1. Make a filter-comparison table for the experimental file. Which named filters appear in `QFilterMask`, and what fraction of inspected events pass?
 2. For simulation, plot lateral distance from the truth track for events with at least 20 hit DOMs.
