@@ -25,7 +25,3 @@ GCD means Geometry, Calibration, and DetectorStatus. Use the GCD file matched to
 Experimental Level2 data generally contains detector readout, filters, cleaned pulses, and reconstruction results. It does not contain Monte Carlo truth.
 
 Simulation Level2 data often contains all of the above plus truth information, for example `I3MCTree`, `MCPrimary`, weight dictionaries, or other simulation objects. Exact keys vary by production.
-
-## InIce Scope
-
-This repository intentionally ignores IceTop. In helper code, in-ice DOMs are treated as OMKeys with IceCube strings and DOM numbers in the in-ice range. If you inspect files with IceTop keys, treat them as out of scope for these lessons.
