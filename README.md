@@ -1,17 +1,11 @@
 # IceTray Tutorial: InIce Cosmic-Ray Analysis
 
-This repository is a student-friendly introduction to the IceTray software
-framework used in IceCube analysis. It focuses on the in-ice detector only:
+This repository is an introduction to the IceTray software
+framework used in IceCube analyses. It focuses on the in-ice detector only:
 DOMs on IceCube strings, event frames, pulse series, filters, reconstructed
 quantities, simulation truth, and small analysis outputs.
 
-The tutorials are written for a Madison-based IceCube JupyterHub or other
-IceCube-managed machine where the example files under `/data` and an IceTray
-environment are available.
-
-## What Students Will Learn
-
-By the end, a student should be able to:
+## What you'll learn:
 
 1. Open `.i3` and `.i3.zst` files with `dataio-shovel` and Python.
 2. Explain the basic frame model: `I`, `G`, `C`, `D`, `Q`, and `P` frames.
@@ -40,13 +34,6 @@ eval `/cvmfs/icecube.opensciencegrid.org/py3-v4.4.0/setup.sh`
 icetray-shell
 ```
 
-If your group uses a specific built IceTray checkout, use that instead, for
-example:
-
-```bash
-/path/to/icetray/build/env-shell.sh
-```
-
 Then open the notebooks:
 
 ```bash
@@ -71,7 +58,7 @@ I3:  /data/exp/IceCube/2020/filtered/level2/0101/Run00133576/Level2_IC86.2019_da
 
 The notebooks read only a limited number of frames by default so they remain
 interactive. Large outputs should go under your `/data/user/<username>/`
-directory, not inside this repository.
+directory.
 
 ## Repository Layout
 
@@ -120,5 +107,3 @@ src/icetray_tutorial/
   <https://user-web.icecube.wisc.edu/~jvansanten/icerec-dev-docs/projects/icetray/i3module.html>
 - IceCube dataclasses reference:
   <https://user-web.icecube.wisc.edu/~jvansanten/icerec-dev-docs/projects/dataclasses/index.html>
-
-These tutorials intentionally avoid IceTop and focus on in-ice Level2 files.
