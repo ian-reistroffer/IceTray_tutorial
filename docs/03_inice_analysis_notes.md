@@ -1,14 +1,12 @@
 # InIce Analysis Notes
 
-These notes collect small habits that make early IceTray work less confusing.
-
 ## Start Small
 
 Level2 files can be large. Read 100 or 1000 physics frames first, make sure the logic works, then scale up.
 
 ## Prefer Keys That Exist
 
-Different files and processing versions use different key names. The helper functions in `src/icetray_tutorial` try common pulse and reconstruction names, but students should always print the frame keys before assuming a key exists.
+Different files and processing versions use different key names. The helper functions in `src/icetray_tutorial` try common pulse and reconstruction names, but you'd better print the frame keys before assuming a key exists.
 
 ## Pulse Maps And Masks
 
@@ -19,7 +17,7 @@ from icecube import dataclasses
 pulses = dataclasses.I3RecoPulseSeriesMap.from_frame(frame, pulse_key)
 ```
 
-That pattern works for common pulse maps and masks.
+That should work for common pulse maps and masks.
 
 ## Filter Results
 
@@ -27,7 +25,7 @@ That pattern works for common pulse maps and masks.
 
 ## Reconstruction Keys
 
-There is no single universal reconstruction key in every file. Common particle or energy-related keys can include names containing:
+There's no single universal reconstruction key in every file. Common particle or energy-related keys can include names containing:
 
 ```text
 SplineMPE
@@ -42,4 +40,4 @@ Print available keys, inspect their types, and then choose the most relevant one
 
 ## Simulation Truth
 
-For CORSIKA in-ice simulation, `MCPrimary` is often a useful first truth particle to inspect. It may not be the best physical proxy for every exercise. As a stretch goal, inspect `I3MCTree` and identify the most relevant muon track for the in-ice event.
+For CORSIKA in-ice simulation, `MCPrimary` or `PolyplopiaPrimary` is the truth particle.
