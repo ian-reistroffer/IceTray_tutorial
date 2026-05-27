@@ -5,6 +5,18 @@ from pathlib import Path
 from typing import Iterable, Iterator
 
 
+FRAME_STOP_NAMES = {
+    "I": "TrayInfo",
+    "G": "Geometry",
+    "C": "Calibration",
+    "D": "DetectorStatus",
+    "Q": "DAQ",
+    "P": "Physics",
+    "S": "Simulation",
+    "M": "Mixed",
+}
+
+
 def _load_dataio():
     try:
         from icecube import dataio
@@ -38,7 +50,8 @@ def iter_frames(paths: str | Path | Iterable[str | Path], limit: int | None = No
 def stop_name(frame) -> str:
     """Return a readable frame stop name."""
     stop = frame.Stop
-    return getattr(stop, "id", str(stop))
+    raw_name = str(getattr(stop, "id", str(stop)))
+    return FRAME_STOP_NAMES.get(raw_name, raw_name)
 
 
 def frame_key_table(frame) -> list[dict[str, str]]:
@@ -71,6 +84,8 @@ def first_frame_with_key(paths: str | Path | Iterable[str | Path], key: str, lim
 
 def event_header_dict(frame) -> dict[str, object]:
     """Extract common fields from I3EventHeader when present."""
+    if frame is None:
+        return {}
     if "I3EventHeader" not in frame:
         return {}
     header = frame["I3EventHeader"]
