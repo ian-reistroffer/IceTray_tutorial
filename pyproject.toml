@@ -1,0 +1,9 @@
+[project]
+name = "icetray-tutorial"
+version = "0.1.0"
+description = "Student tutorials for InIce-focused IceTray analysis."
+readme = "README.md"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+where = ["src"]
