@@ -5,14 +5,14 @@ from pathlib import Path
 
 import numpy as np
 
-from .frames import iter_frames, stop_name
+from .frames import is_stop, iter_frames
 from .pulses import hit_omkeys
 
 
 def read_geometry(gcd_file: str | Path):
     """Return I3Geometry from the first geometry frame in a GCD file."""
     for frame in iter_frames(gcd_file):
-        if stop_name(frame) == "Geometry" and "I3Geometry" in frame:
+        if is_stop(frame, "Geometry") and "I3Geometry" in frame:
             return frame["I3Geometry"]
     raise KeyError(f"No I3Geometry found in {gcd_file}")
 
