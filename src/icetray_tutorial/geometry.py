@@ -8,6 +8,14 @@ import numpy as np
 from .frames import is_stop, iter_frames
 from .pulses import hit_omkeys
 
+TRUTH_KEY_CANDIDATES = (
+    "MCPrimary",
+    "MostEnergeticMuon",
+    "MostEnergeticInIceMuon",
+    "MCMuon",
+    "PolyplopiaPrimary",
+)
+
 
 def read_geometry(gcd_file: str | Path):
     """Return I3Geometry from the first geometry frame in a GCD file."""
@@ -69,11 +77,33 @@ def distance_point_to_track(point: np.ndarray, particle) -> float:
     return float(np.linalg.norm(np.cross(point - origin, unit_direction)))
 
 
-def find_truth_track(frame, candidates: tuple[str, ...] = ("MCPrimary", "MostEnergeticMuon")):
+def is_particle_like(obj) -> bool:
+    """Return True for objects that look enough like an I3Particle track."""
+    return hasattr(obj, "pos") and hasattr(obj, "dir")
+
+
+def particle_like_keys(frame, words: tuple[str, ...] = ("mc", "truth", "primary", "muon")) -> list[str]:
+    """Return frame keys that look like truth-track particle objects."""
+    keys = []
+    for key in frame.keys():
+        if not any(word in key.lower() for word in words):
+            continue
+        try:
+            obj = frame[key]
+        except Exception:
+            continue
+        if is_particle_like(obj):
+            keys.append(key)
+    return keys
+
+
+def find_truth_track(frame, candidates: tuple[str, ...] = TRUTH_KEY_CANDIDATES):
     """Return the first available truth-track-like particle from a frame."""
     for key in candidates:
-        if key in frame:
+        if key in frame and is_particle_like(frame[key]):
             return key, frame[key]
+    for key in particle_like_keys(frame):
+        return key, frame[key]
     return None, None
 
 
