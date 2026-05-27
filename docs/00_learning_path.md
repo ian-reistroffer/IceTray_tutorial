@@ -1,14 +1,12 @@
 # Learning Path
 
-This tutorial is designed as a short, practical introduction rather than a complete IceTray course. The goal is to help a student become comfortable opening files, understanding frames, extracting useful quantities, and writing small IceTray analyses for in-ice cosmic-ray work.
-
 ## Lesson 1: Files, Frames, And Keys
 
 Start with `notebooks/01_open_i3_files.ipynb`.
 
-Students should learn that an `.i3` file is a stream of frames. A frame is a container of named objects. Each object has a key and a C++/Python type.
+An `.i3` file is a stream of frames. A frame is a container of named objects. Each object has a key and a C++/Python type.
 
-Practice goals:
+To-do's:
 
 - Open a GCD file and an event file with `dataio-shovel`.
 - Open the same files in Python with `dataio.I3File`.
@@ -16,13 +14,13 @@ Practice goals:
 - List keys in the first few `Q` and `P` frames.
 - Find `I3EventHeader`, `QFilterMask`, pulse maps, and reconstruction keys.
 
-## Lesson 2: Basic Plots From Level2 Files
+## Lesson 2: Plots From Level2 Files
 
 Continue with `notebooks/02_plot_basic_quantities.ipynb`.
 
-Students should learn to convert frame objects into small Python summaries: hit DOM counts, total charge, reconstructed zenith, reconstructed energy-like quantities, and filter pass/fail decisions.
+Convert frame objects into small Python summaries: hit DOM counts, total charge, reconstructed zenith, reconstructed energy-like quantities, and filter pass/fail decisions.
 
-Practice goals:
+To-do's:
 
 - Build a table with one row per physics frame.
 - Plot histograms of hit DOM count and total charge.
@@ -33,15 +31,15 @@ Practice goals:
 
 Continue with `notebooks/03_trays_modules_filters.ipynb`.
 
-Students should learn the IceTray processing pattern: readers feed frames into a tray; modules inspect or modify frames; writers save selected outputs.
+Understand the IceTray processing pattern: readers feed frames into a tray; modules inspect or modify frames; writers save selected outputs.
 
-Practice goals:
+To-do's:
 
-- Build a tray with `I3Reader`.
-- Add Python functions as modules.
-- Add an `I3ConditionalModule` style class.
-- Select events with `QFilterMask`.
-- Select events with at least a minimum number of pulsed DOMs.
+- [ ] Build a tray with `I3Reader`.
+- [ ] Add Python functions as modules.
+- [ ] Add an `I3ConditionalModule` style class.
+- [ ] Select events with `QFilterMask`.
+- [ ] Select events with at least a minimum number of pulsed DOMs.
 
 ## Lesson 4: Simulation Truth And Geometry
 
