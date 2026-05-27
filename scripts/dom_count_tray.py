@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import argparse
 
-from icecube import icetray
+from icecube import icetray, dataio
 from I3Tray import I3Tray
 
 
