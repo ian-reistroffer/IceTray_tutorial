@@ -15,6 +15,7 @@ FRAME_STOP_NAMES = {
     "S": "Simulation",
     "M": "Mixed",
 }
+FRAME_STOP_IDS = {name: stop_id for stop_id, name in FRAME_STOP_NAMES.items()}
 
 
 def _load_dataio():
@@ -47,11 +48,62 @@ def iter_frames(paths: str | Path | Iterable[str | Path], limit: int | None = No
             infile.close()
 
 
+def _as_stop_text(value) -> str | None:
+    if value is None:
+        return None
+    if callable(value):
+        try:
+            value = value()
+        except TypeError:
+            return None
+    if isinstance(value, bytes):
+        return value.decode()
+    text = str(value)
+    if text.startswith("b'") and text.endswith("'"):
+        return text[2:-1]
+    if text.startswith('b"') and text.endswith('"'):
+        return text[2:-1]
+    return text
+
+
+def stop_tokens(frame) -> set[str]:
+    """Return all known text forms for a frame stop."""
+    if frame is None:
+        return set()
+
+    stop = frame.Stop
+    tokens = set()
+    for value in (stop, getattr(stop, "id", None), getattr(stop, "name", None)):
+        text = _as_stop_text(value)
+        if text:
+            tokens.add(text)
+            if text in FRAME_STOP_NAMES:
+                tokens.add(FRAME_STOP_NAMES[text])
+            if text in FRAME_STOP_IDS:
+                tokens.add(FRAME_STOP_IDS[text])
+    return tokens
+
+
 def stop_name(frame) -> str:
     """Return a readable frame stop name."""
-    stop = frame.Stop
-    raw_name = str(getattr(stop, "id", str(stop)))
-    return FRAME_STOP_NAMES.get(raw_name, raw_name)
+    tokens = stop_tokens(frame)
+    for stop_id, name in FRAME_STOP_NAMES.items():
+        if stop_id in tokens or name in tokens:
+            return name
+    return next(iter(tokens), "")
+
+
+def is_stop(frame, *names: str) -> bool:
+    """Return True when a frame stop matches any short or long stop name."""
+    tokens = stop_tokens(frame)
+    requested = set()
+    for name in names:
+        requested.add(name)
+        if name in FRAME_STOP_NAMES:
+            requested.add(FRAME_STOP_NAMES[name])
+        if name in FRAME_STOP_IDS:
+            requested.add(FRAME_STOP_IDS[name])
+    return bool(tokens & requested)
 
 
 def frame_key_table(frame) -> list[dict[str, str]]:
