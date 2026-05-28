@@ -6,7 +6,7 @@ It focuses on the in-ice detector only: DOMs on IceCube strings, event frames, p
 
 The main tutorial code is copied inside the notebooks: file paths, loops, functions, etc. The `src/` package and `scripts/` directory are references to put all those things in one place; they're not required to execute any code in the notebooks.
 
-## Main Take-Aways:
+## Main To-do's:
 
 1. Open `.i3` and `.i3.zst` files with `dataio-shovel` and Python.
 2. Review the frame model: `I`, `G`, `C`, `D`, `Q`, and `P` frames.
