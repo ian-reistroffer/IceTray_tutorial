@@ -19,10 +19,28 @@ IceTray processes IceCube data as a stream of frames. A frame is a named-object 
 
 ## GCD Files
 
-GCD means Geometry, Calibration, and DetectorStatus. Use the GCD file matched to the run or simulation set. The notebooks load the GCD first when geometry or detector configuration is needed.
+GCD means Geometry, Calibration, and DetectorStatus. Use the GCD file matched to the run or simulation set.
 
 ## Simulation Versus Experimental Data
 
 Experimental Level2 data generally contains detector readout, filters, cleaned pulses, and reconstruction results. It does not contain Monte Carlo truth.
 
 Simulation Level2 data often contains all of the above plus truth information, for example `I3MCTree`, `MCPrimary`, weight dictionaries, or other simulation objects. Exact keys vary by production.
+
+Regarding these "Levels", there are various levels with differing purposes:
+
+**Level 0**: Triggering the detector (often simply called "**trigger-level**").
+This is very fast and aims to separate "maybe interesting" (any particle interaction) from "definitely not interesting" (noise in the detector) by looking at the number of hits in the detector as a function of time.
+
+**Level 1**: Filtering (often called "**filter-level**").
+Here, we have a rate of ~$3\pu{~kHz}$ which is primarily dominated by atmospheric muons. For comparison, atmospheric neutrino rates are on the order of $10-20\pu{~mHz}$. To reduce the background rates, we specialize our data into different filters with varying energy and topology goals.
+- For example, the <u>muon filter</u> looks for muons that pass through the full detector >1 TeV, while the <u>DeepCore filter</u> looks for events  <100 GeV interacting in the bottom of the detector.
+
+**Level 2**: Collaboration-wide processing.
+Here, we are not trying to remove events, but are rather **applying reconstructions** and processing for each filter. No events get removed during the L2 processing.
+
+**Level 3**: Working-group specific processing.
+The three main L3 chains (cascades, muons, and low energy) cut on the events passing a subset of filters, then apply new reconstructions to reduce rates further. These get rates below about $1\pu{~Hz}$.
+
+**Level 4+**: Event-selection specific processing.
+These are additional stages of processing used to get from the ~$1\pu{~Hz}$ L3 rates down to a neutrino-dominated sample. The number of additional levels depends on the analyzer and isn't terribly meaningful by itself.
