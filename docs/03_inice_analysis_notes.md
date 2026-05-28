@@ -13,15 +13,13 @@ from icecube import dataclasses
 pulses = dataclasses.I3RecoPulseSeriesMap.from_frame(frame, pulse_key)
 ```
 
-That should work for common pulse maps and masks.
-
 ## Filter Results
 
-`QFilterMask` stores named filter decisions. A filter is normally considered passed when both `condition_passed` and `prescale_passed` are true.
+`QFilterMask` stores named filter decisions. A filter is considered passed when both `condition_passed` and `prescale_passed` are true.
 
 ## Reconstruction Keys
 
-There's no single universal reconstruction key in every file. Common particle or energy-related keys can include names containing:
+There's no single universal reconstruction key in every file. Common particle direction- position- or energy-related keys can include names containing:
 
 ```text
 SplineMPE
@@ -32,7 +30,7 @@ Millipede
 OnlineL2
 ```
 
-Print available keys, inspect their types, and then choose the most relevant one for the exercise.
+<!-- TODO: start a reference with details on all these -->
 
 ## Simulation Truth
 
