@@ -56,7 +56,7 @@ I3:  /data/exp/IceCube/2020/filtered/level2/0101/Run00133576/Level2_IC86.2019_da
 The notebooks read only a limited number of frames by default so they remain interactive. Large outputs should go under your `/data/user/<username>/` directory.
 
 > [!NOTE]
-> TODO: Make a reference for all the relevant file paths for simulation and experimental data (runs, subruns, year, detector year, detector configuration, MMDD, /data/ana/, etc.
+> TODO: Make a reference for all the relevant file paths for simulation and experimental data (runs, subruns, year vs detector year, detector configuration, MMDD, /data/ana/, "passes" etc.).
 
 
 ## Suggested Order
