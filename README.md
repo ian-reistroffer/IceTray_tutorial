@@ -61,7 +61,7 @@ The notebooks read only a limited number of frames by default so they remain int
 
 ## Suggested Order
 
-1. `docs/00_learning_path.md`
+1. `docs/00_notebook_overviews.md`
 2. `docs/01_environment.md` (the other docs are good references, but most concepts are covered in the notebooks).
 3. `notebooks/01_open_i3_files.ipynb`.
 4. `dataio-shovel` on both the GCD file and event file.
