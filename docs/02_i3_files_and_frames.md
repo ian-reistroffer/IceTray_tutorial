@@ -2,19 +2,20 @@
 
 IceTray processes IceCube data as a stream of frames. A frame is a named-object container. Every object in the frame has a key, and modules communicate by reading and writing those keys.
 
-## Common Frame Stops
+## Common Frame "Stops"
 
-`I` / TrayInfo: processing history and provenance. You usually inspect this but do not analyze it event-by-event.
+`I` / TrayInfo: processing history and provenance. You can inspect this but the information is mostly bookkeeping.
 
-`G` / Geometry: detector geometry. For this tutorial, the most important object is `I3Geometry`, which maps each in-ice OMKey to a DOM position.
+`G` / Geometry: detector geometry. For us, the most important object in a G-frame is `I3Geometry`. This maps each in-ice OMKey to a DOM position.
 
 `C` / Calibration: calibration constants used to interpret DOM waveforms and pulses.
 
 `D` / DetectorStatus: run-specific detector configuration, such as which DOMs were active and which triggers and filters were configured.
 
-`Q` / DAQ: event-level readout before split-event processing. This is the natural place to find trigger and raw event information.
+`Q` / DAQ: event-level readout before split-event processing. This is the place to find trigger and raw event information.
 
-`P` / Physics: processed event information, usually after event splitting. Level2 files often store reconstructed particles, pulse maps, filter results, and analysis-ready quantities in `P` frames.
+`P` / Physics: processed event information, after event splitting. Level2 files can store reconstructed particles, pulse maps, filter results, and other analysis quantities in `P` frames.
+
 
 ## GCD Files
 
