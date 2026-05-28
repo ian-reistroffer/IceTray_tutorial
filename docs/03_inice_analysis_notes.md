@@ -2,7 +2,7 @@
 
 - Level2 files can be huge. Read 100 or 1000 physics frames first, make sure the logic works, then scale up.
 - Different files and processing versions use different key names.
-  - I put helper functions in `src/icetray_tutorial` try common pulse and reconstruction names so that different data files may be tested in the future, but it's better practice to print the frame keys before assuming a key exists.
+  - I put helper functions in the notebooks look for common pulse and reconstruction names so that different data files may be tested in the future, but it's better practice to print the frame keys to see if a wanted key exists.
 
 ## Pulse Maps And Masks
 
