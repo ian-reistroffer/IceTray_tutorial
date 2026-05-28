@@ -1,6 +1,6 @@
 # Environment Notes
 
-## Where To Work
+## Where To Clone This Repo
 
 Recommended:
 
@@ -8,7 +8,7 @@ Recommended:
 /home/<username>/IceTray_tutorial
 ```
 
-Large generated files:
+But send large generated files to:
 
 ```text
 /data/user/<username>/IceTray_tutorial/
@@ -16,20 +16,20 @@ Large generated files:
 
 ## Starting An IceTray Environment
 
-A common pattern is:
-
+In a fresh terminal, type:
 ```bash
-eval `/cvmfs/icecube.opensciencegrid.org/py3-v4.4.0/setup.sh`
-icetray-shell
-```
-
-Typical IceTray checkout:
-
-```bash
+# ssh into your pub.icecube.wisc.edu. This is done automatically if you open a terminal from JupyterHub; otherwise, type:
+ssh ireistr@pub.icecube.wisc.edu
+# Hop on a Cobalt node:
+ssh cobalt
+#...enter your password...
+# Then type this so your shell can find IceCube software from CVMFS (updates your PATH, PYTHONPATH, LD_LIBRARY_PATH):
+eval $(/cvmfs/icecube.opensciencegrid.org/py3-v4.3.0/setup.sh)
+# Enter IceTray environment:
 /data/user/<username>/<some-icetray-build>/env-shell.sh
 ```
 
-Inside the shell, check that Python can import IceCube modules:
+Now check that Python can import IceCube modules:
 
 ```bash
 python - <<'PY'
