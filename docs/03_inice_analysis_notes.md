@@ -1,12 +1,8 @@
-# InIce Analysis Notes
+# Miscellaneous Analysis Notes
 
-## Start Small
-
-Level2 files can be large. Read 100 or 1000 physics frames first, make sure the logic works, then scale up.
-
-## Prefer Keys That Exist
-
-Different files and processing versions use different key names. The helper functions in `src/icetray_tutorial` try common pulse and reconstruction names, but you'd better print the frame keys before assuming a key exists.
+- Level2 files can be huge. Read 100 or 1000 physics frames first, make sure the logic works, then scale up.
+- Different files and processing versions use different key names.
+  - I put helper functions in `src/icetray_tutorial` try common pulse and reconstruction names so that different data files may be tested in the future, but it's better practice to print the frame keys before assuming a key exists.
 
 ## Pulse Maps And Masks
 
