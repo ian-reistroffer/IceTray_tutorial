@@ -30,21 +30,12 @@ cd IceTray_tutorial
 If that doesn't work, do this instead:
 
 ```bash
-
+cd ~
+git clone git@github.com:ian-reistroffer/IceTray_tutorial.git
+cd IceTray_tutorial
 ```
 
-Enter an IceTray environment. The exact metaproject changes over time, but a typical CVMFS pattern is:
-
-```bash
-eval `/cvmfs/icecube.opensciencegrid.org/py3-v4.4.0/setup.sh`
-icetray-shell
-```
-
-Then open the notebooks:
-
-```bash
-jupyter lab
-```
+Details on entering an IceTray environment and getting the right notebook kernels can be found in `/docs/01_environment`.
 
 ## Example Files Used Throughout
 
@@ -64,50 +55,29 @@ I3:  /data/exp/IceCube/2020/filtered/level2/0101/Run00133576/Level2_IC86.2019_da
 
 The notebooks read only a limited number of frames by default so they remain interactive. Large outputs should go under your `/data/user/<username>/` directory.
 
-## Repository Layout
+> ![NOTE]
+> TODO: Make a reference for all the relevant file paths for simulation and experimental data (runs, subruns, year, detector year, detector configuration, MMDD, /data/ana/, etc.
 
-```text
-docs/
-  00_learning_path.md        Suggested course sequence
-  01_environment.md          Madison/JupyterHub setup notes
-  02_i3_files_and_frames.md  Conceptual guide to files and frames
-  03_inice_analysis_notes.md InIce-specific analysis reminders
-notebooks/
-  01_open_i3_files.ipynb
-  02_plot_basic_quantities.ipynb
-  03_trays_modules_filters.ipynb
-  04_sim_truth_lateral_distance.ipynb
-  05_write_hdf5_outputs.ipynb
-scripts/
-  peek_i3.py
-  frame_summary.py
-  dom_count_tray.py
-  lateral_distance.py
-  export_hdf5.py
-src/icetray_tutorial/
-  paths.py
-  frames.py
-  pulses.py
-  filters.py
-  geometry.py
-```
 
 ## Suggested Order
 
-1. Read `docs/00_learning_path.md`.
-2. Run `notebooks/01_open_i3_files.ipynb`.
-3. Use `dataio-shovel` on both the GCD file and event file.
-4. Run `notebooks/02_plot_basic_quantities.ipynb`.
-5. Run `notebooks/03_trays_modules_filters.ipynb`.
-6. Run `notebooks/04_sim_truth_lateral_distance.ipynb`.
-7. Finish with `notebooks/05_write_hdf5_outputs.ipynb`.
+1. `docs/00_learning_path.md`
+2. `docs/01_environment.md` (the other docs are good references, but most concepts are covered in the notebooks).
+3. `notebooks/01_open_i3_files.ipynb`.
+4. `dataio-shovel` on both the GCD file and event file.
+5. `notebooks/02_plot_basic_quantities.ipynb`.
+6. `notebooks/03_trays_modules_filters.ipynb`.
+7. `notebooks/04_sim_truth_lateral_distance.ipynb`.
+8. `notebooks/05_write_hdf5_outputs.ipynb`.
 
-## Useful External References
+## Other Useful References
 
 - IceCube docs landing page: <https://docs.icecube.aq/>
 - IceTray tutorial slides, including frame and `dataio-shovel` overview:
   <https://events.icecube.wisc.edu/event/313/contributions/11144/attachments/8456/11231/IceTray%20Tutorial.pdf>
 - IceTray `I3Module` reference:
   <https://user-web.icecube.wisc.edu/~jvansanten/icerec-dev-docs/projects/icetray/i3module.html>
-- IceCube dataclasses reference:
+- Dataclasses reference:
   <https://user-web.icecube.wisc.edu/~jvansanten/icerec-dev-docs/projects/dataclasses/index.html>
+- Computing and data structure reference:
+- <https://wiki.icecube.wisc.edu/index.php/Analysis_Software/Computing>
