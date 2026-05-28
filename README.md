@@ -79,5 +79,4 @@ The notebooks read only a limited number of frames by default so they remain int
   <https://user-web.icecube.wisc.edu/~jvansanten/icerec-dev-docs/projects/icetray/i3module.html>
 - Dataclasses reference:
   <https://user-web.icecube.wisc.edu/~jvansanten/icerec-dev-docs/projects/dataclasses/index.html>
-- Computing and data structure reference:
-- <https://wiki.icecube.wisc.edu/index.php/Analysis_Software/Computing>
+- Computing and data structure reference: <https://wiki.icecube.wisc.edu/index.php/Analysis_Software/Computing>
