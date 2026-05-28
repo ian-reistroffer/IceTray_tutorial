@@ -1,17 +1,19 @@
 # IceTray Tutorial: InIce Cosmic-Ray Analysis
 
-This repository is an introduction to the IceTray software framework used in IceCube analyses. It focuses on the in-ice detector only: DOMs on IceCube strings, event frames, pulse series, filters, reconstructed quantities, simulation truth, and small analysis outputs.
+This is an introduction to the IceTray software framework used in IceCube analyses.
 
-The notebooks are written for students who are new to both IceTray and Python. For that reason, the main tutorial code is intentionally visible inside the notebooks: file paths, loops, small functions, print statements, and comments are shown directly. The `src/` package and `scripts/` directory are useful references, but they are not required to understand the notebook lessons.
+It focuses on the in-ice detector only: DOMs on IceCube strings, event frames, pulse series, filters, reconstructed quantities, simulation truth, and small analysis outputs.
 
-## What you'll learn:
+The main tutorial code is copied inside the notebooks: file paths, loops, functions, etc. The `src/` package and `scripts/` directory are references to put all those things in one place; they're not required to execute any code in the notebooks.
+
+## Main Take-Aways:
 
 1. Open `.i3` and `.i3.zst` files with `dataio-shovel` and Python.
-2. Explain the basic frame model: `I`, `G`, `C`, `D`, `Q`, and `P` frames.
-3. Inspect frame keys and recognize common IceCube object types.
-4. Read pulse maps, count hit DOMs, and plot basic in-ice event quantities.
-5. Use `QFilterMask` to select events that passed named filters.
-6. Build simple IceTray trays, modules, and conditional processing functions.
+2. Review the frame model: `I`, `G`, `C`, `D`, `Q`, and `P` frames.
+3. Inspect frame keys and common IceCube object types.
+4. Read pulse maps, count hit DOMs, plot in-ice event quantities.
+5. Use `QFilterMask` to select events that passed certain filters.
+6. Build IceTray trays, modules, and conditional processing functions.
 7. Compare pulsed DOM locations to simulation truth tracks.
 8. Write selected frame quantities to HDF5 for later analysis.
 
@@ -23,6 +25,12 @@ Clone the repository into your home directory:
 cd ~
 git clone https://github.com/ian-reistroffer/IceTray_tutorial.git
 cd IceTray_tutorial
+```
+
+If that doesn't work, do this instead:
+
+```bash
+
 ```
 
 Enter an IceTray environment. The exact metaproject changes over time, but a typical CVMFS pattern is:
