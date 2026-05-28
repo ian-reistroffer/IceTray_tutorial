@@ -20,13 +20,38 @@ In a fresh terminal, type:
 ```bash
 # ssh into your pub.icecube.wisc.edu. This is done automatically if you open a terminal from JupyterHub; otherwise, type:
 ssh ireistr@pub.icecube.wisc.edu
+
 # Hop on a Cobalt node:
 ssh cobalt
 #...enter your password...
+
 # Then type this so your shell can find IceCube software from CVMFS (updates your PATH, PYTHONPATH, LD_LIBRARY_PATH):
 eval $(/cvmfs/icecube.opensciencegrid.org/py3-v4.3.0/setup.sh)
+
 # Enter IceTray environment:
 /data/user/<username>/<some-icetray-build>/env-shell.sh
+```
+
+If all has gone right, you should see something like this:
+
+```
+************************************************************************
+*                                                                      *
+*                   W E L C O M E  to  I C E T R A Y                   *
+*                                                                      *
+*                Version icetray.main     git:80859e2d                 *
+*                                                                      *
+*                You are welcome to visit our Web site                 *
+*                        http://icecube.umd.edu                        *
+*                                                                      *
+************************************************************************
+
+Icetray environment has:
+   I3_SRC       = /home/ireistr/i3/icetray/src
+   I3_BUILD     = /home/ireistr/i3/icetray/build
+   I3_TESTDATA  = /cvmfs/icecube.opensciencegrid.org/py3-v4.3.0/../data/i3-test-data-svn/trunk
+   I3_PRODDATA should be set to an existing directory path
+   Python       = 3.11.3
 ```
 
 Now check that Python can import IceCube modules:
