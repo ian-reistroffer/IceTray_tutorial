@@ -20,6 +20,7 @@ In a fresh terminal, type:
 ```bash
 # ssh into your pub.icecube.wisc.edu. This is done automatically if you open a terminal from JupyterHub; otherwise, type:
 ssh ireistr@pub.icecube.wisc.edu
+# (use your own username)
 
 # Hop on a Cobalt node:
 ssh cobalt
@@ -29,7 +30,8 @@ ssh cobalt
 eval $(/cvmfs/icecube.opensciencegrid.org/py3-v4.3.0/setup.sh)
 
 # Enter IceTray environment:
-/data/user/<username>/<some-icetray-build>/env-shell.sh
+eval /home/ireistr/i3/icetray/build/env-shell.sh
+# (this should be usable; eventually you'll build your own)
 ```
 
 If all has gone right, you should see something like this:
@@ -65,11 +67,20 @@ PY
 
 ## Opening Files In The Terminal
 
-`dataio-shovel` gets you a human-readable look at an I3 file from a terminal:
+`dataio-shovel` gets you a human-readable look at an I3 file from a terminal. For example:
+
+```bash
+dataio-shovel /data/exp/IceCube/2020/filtered/level2/0101/Run00133576/Level2_IC86.2019_data_Run00133576_Subrun00000000_00000000.i3.zst
+```
+
+Or, to see GCD frames at the front, simply add a path to the right GCD:
+
 
 ```bash
 dataio-shovel /data/exp/IceCube/2020/filtered/level2/0101/Run00133576/Level2_IC86.2019_data_Run00133576_0101_78_503_GCD.i3.zst /data/exp/IceCube/2020/filtered/level2/0101/Run00133576/Level2_IC86.2019_data_Run00133576_Subrun00000000_00000000.i3.zst
 ```
+
+This should work with any .i3 file.
 
 Useful `dataio-shovel` keys:
 
@@ -85,10 +96,8 @@ i      interactive Python shell
 L      load a library
 ```
 
-## Notebook Imports
+## Notebook Environments
 
-Each notebook adds `../src` to `sys.path`, so the helper package can be used without installation. If you prefer an editable install:
+Similar to entering the IceTray environment in a Termninal, to use IceTray software in a notebook you must select the right notebook kernel.
 
-```bash
-python -m pip install -e .
-```
+After opening a notebook, select "Kernel" -> "Change Kernel..." -> In the drop-down menu, select the desired kernel. Usually the most up-to-date python kernel, e.g., "py3-v4.3.0: v1.12.1".
