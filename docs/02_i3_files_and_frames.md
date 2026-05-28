@@ -39,6 +39,8 @@ Higher levels $=$ more filtering has been done, and the more advanced parameters
 
 However, no events are deleted at the lower levels (only at **Level 3** and above).
 
+---
+
 There are various levels with differing purposes:
 
 **Level 0**: Triggering the detector (often simply called "**trigger-level**").
