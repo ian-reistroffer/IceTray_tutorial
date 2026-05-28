@@ -1,8 +1,8 @@
 # Learning Path
 
-## Lesson 1: Files, Frames, And Keys
+## Notebook 1: Files, Frames, And Keys
 
-Start with `notebooks/01_open_i3_files.ipynb`.
+`notebooks/01_open_i3_files.ipynb`
 
 An `.i3` file is a stream of frames. A frame is a container of named objects. Each object has a key and a C++/Python type.
 
@@ -14,9 +14,9 @@ To-do's:
 - List keys in the first few `Q` and `P` frames.
 - Find `I3EventHeader`, `QFilterMask`, pulse maps, and reconstruction keys.
 
-## Lesson 2: Plots From Level2 Files
+## Notebook 2: Plots From Level2 Files
 
-Continue with `notebooks/02_plot_basic_quantities.ipynb`.
+`notebooks/02_plot_basic_quantities.ipynb`
 
 Convert frame objects into small Python summaries: hit DOM counts, total charge, reconstructed zenith, reconstructed energy-like quantities, and filter pass/fail decisions.
 
@@ -27,9 +27,9 @@ To-do's:
 - Try several reconstruction keys and see which are present.
 - Compare a small simulation sample to a small experimental-data sample.
 
-## Lesson 3: Trays, Modules, And Event Selection
+## Notebook 3: Trays, Modules, And Event Selection
 
-Continue with `notebooks/03_trays_modules_filters.ipynb`.
+`notebooks/03_trays_modules_filters.ipynb`
 
 Understand the IceTray processing pattern: readers feed frames into a tray; modules inspect or modify frames; writers save selected outputs.
 
@@ -41,9 +41,9 @@ To-do's:
 - Select events with `QFilterMask`.
 - Select events with at least a minimum number of pulsed DOMs.
 
-## Lesson 4: Simulation Truth And Geometry
+## Notebook 4: Simulation Truth And Geometry
 
-Continue with `notebooks/04_sim_truth_lateral_distance.ipynb`.
+`notebooks/04_sim_truth_lateral_distance.ipynb`
 
 Understand how the GCD geometry maps OMKeys to DOM positions and how simulation truth can be compared to observed pulses.
 
@@ -55,9 +55,9 @@ To-do's:
 - Compute the perpendicular distance from each pulsed DOM to the track.
 - Plot lateral-distance distributions.
 
-## Lesson 5: HDF5 Output
+## Notebook 5: HDF5 Output
 
-Finish with `notebooks/05_write_hdf5_outputs.ipynb`.
+`notebooks/05_write_hdf5_outputs.ipynb`
 
 Understand that `.i3` is the native event format, while HDF5 is a convenient format for downstream plotting and analysis.
 
@@ -67,9 +67,4 @@ To-do's:
 - Write a small custom Pandas table to HDF5 as a lightweight alternative.
 - Store outputs under `/data/user/<username>/`, not in the git repository.
 
-## Exercises
 
-1. Make a filter-comparison table for the experimental file. Which named filters appear in `QFilterMask`, and what fraction of inspected events pass?
-2. For simulation, plot lateral distance from the truth track for events with at least 20 hit DOMs.
-3. Write an HDF5 file containing `I3EventHeader`, one reconstructed particle, `QFilterMask`, and custom hit statistics.
-4. Build a small command-line script that prints one line per event: run, event, subevent stream, hit DOM count, total charge, selected filters.
