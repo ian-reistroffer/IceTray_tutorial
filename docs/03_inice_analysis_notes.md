@@ -30,7 +30,8 @@ Millipede
 OnlineL2
 ```
 
-<!-- TODO: start a reference with details on all these -->
+> [!NOTE]
+> TODO: start a reference with details on all these.
 
 ## Simulation Truth
 
