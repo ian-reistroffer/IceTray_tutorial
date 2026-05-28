@@ -27,7 +27,19 @@ Experimental Level2 data generally contains detector readout, filters, cleaned p
 
 Simulation Level2 data often contains all of the above plus truth information, for example `I3MCTree`, `MCPrimary`, weight dictionaries, or other simulation objects. Exact keys vary by production.
 
-Regarding these "Levels", there are various levels with differing purposes:
+## Processing "Levels"
+
+(copied from https://wiki.icecube.wisc.edu/index.php/Newbies)
+
+From IceCube, data is filtered by **levels**.
+
+The raw data coming directly from the Pole via satellite is **Level 0**. Then, several programs are run to get to **Level 1** and **Level 2**, etc.
+
+Higher levels $=$ more filtering has been done, and the more advanced parameters are in the frames. The raw data parameters are mostly gone by the time you get to higher levels.
+
+However, no events are deleted at the lower levels (only at **Level 3** and above).
+
+There are various levels with differing purposes:
 
 **Level 0**: Triggering the detector (often simply called "**trigger-level**").
 This is very fast and aims to separate "maybe interesting" (any particle interaction) from "definitely not interesting" (noise in the detector) by looking at the number of hits in the detector as a function of time.
@@ -43,4 +55,4 @@ Here, we are not trying to remove events, but are rather **applying reconstructi
 The three main L3 chains (cascades, muons, and low energy) cut on the events passing a subset of filters, then apply new reconstructions to reduce rates further. These get rates below about 1 Hz.
 
 **Level 4+**: Event-selection specific processing.
-These are additional stages of processing used to get from the ~$1\pu{~Hz}$ L3 rates down to a neutrino-dominated sample. The number of additional levels depends on the analyzer and isn't terribly meaningful by itself.
+These are additional stages of processing used to get from the ~1 Hz L3 rates down to a neutrino-dominated sample. The number of additional levels depends on the analyzer and isn't terribly meaningful by itself.
